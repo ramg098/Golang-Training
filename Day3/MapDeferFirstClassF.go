@@ -13,9 +13,13 @@ func main(){
 	defer fmt.Println(b)
 	defer fmt.Println("this was the old map values but since map is refrence type it has new values only")
 	print(b)
-	update(b,4)
+	func (b map[int]string , c int){
+		b[c]="rakesh" //for updation using first class fucntion
+	}(b,4)
 	print(b)
-	remove(b,4)
+	func (b map[int]string,c  int){
+		delete(b,c) // for deletion using first class function
+	}(b,4)
 	print(b)
 
 }
@@ -24,9 +28,4 @@ func print(b map[int]string) {
 		fmt.Println("roll no",x ,"is ",y )
 	}
 }
-func update(b map[int]string , c int){
-	b[c]="rakesh"
-}
-func remove(b map[int]string,c  int){
-	delete(b,c)
-}
+
